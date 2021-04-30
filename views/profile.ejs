@@ -1,0 +1,17 @@
+<%- include("./partials/header.ejs") %> 
+<body>
+    <!-- Navigation -->
+    <%- include("./partials/navbar.ejs") %> 
+    <h3>UserName: <%= data.profile[0].user_name %></h3>
+    <form action="/change-pass" method="post">
+        <input type="hidden" name="uid" value=" <%= data.profile[0].user_id %>">
+        <input type="text" name="pass" id="" placeholder="type your pass">
+        <input type="submit" name="" id="">
+    </form>  
+    <br>
+    <% if(data.profile[0].user_type == "raja"){ %> <a href="/add-products">Click here to add product</a> <% } %>  
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <!-- Custom Script -->
+  <script src="./js/index.js"></script>

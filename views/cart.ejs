@@ -1,0 +1,146 @@
+<%- include("./partials/header.ejs") %> 
+
+<body>
+  <!-- Navigation -->
+  <%- include("./partials/navbar.ejs") %> 
+
+  <!-- Cart Items -->
+  <div class="container-md cart">
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+      <% if(data.cart.length == 0){ %> <td> You have not added anything </td> <% }else{ %>
+        <% for(let i = 0; i < data.cart.length; i++){ %> 
+          <tr>
+            <td>
+              <div class="cart-info">
+                <img src="./<%= data.cart[i].img %> " alt="">
+                <div>
+                  <p><%= data.cart[i].title %></p>
+                  <span>Price:<%= data.cart[i].price %> TK</span>
+                  <br />
+                  <a href="/remove-from-cart/<%= data.cart[i].cart_id %>">remove</a>
+                </div>
+              </div>
+            </td>
+            <td><input id="qty<%= i + 1 %> " type="number" value="<%= data.cart[i].cqty %>" min="1" data-price="<%= data.cart[i].price %>" data-sub="<%= "subtotal" +  (i + 1) %>" data-v="<%= data.cart[i].cart_id %>" onchange="func(id)"></td>
+            <td id="subtotal<%= i + 1 %>"><%= data.cart[i].cqty * data.cart[i].price %> </td>
+          </tr>  
+          
+        <% } %>  
+      <% } %> 
+    </table>
+
+    <div class="total-price">
+      <!-- <table>
+        <tr>
+          <td>Subtotal</td>
+          <td>$200</td>
+        </tr>
+        <tr>
+          <td>Tax</td>
+          <td>$50</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>$250</td>
+        </tr>
+      </table> -->
+      <a href="/confirm" class="checkout btn">Proceed To Checkout</a>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer id="footer" class="section footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-center">
+          <h3>EXTRAS</h3>
+          <a href="#">Brands</a>
+          <a href="#">Gift Certificates</a>
+          <a href="#">Affiliate</a>
+          <a href="#">Specials</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>INFORMATION</h3>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>MY ACCOUNT</h3>
+          <a href="#">My Account</a>
+          <a href="#">Order History</a>
+          <a href="#">Wish List</a>
+          <a href="#">Newsletter</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="footer-center">
+          <h3>CONTACT US</h3>
+          <div>
+            <span>
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+            42 Dream House, Dreammy street, 7131 Dreamville, USA
+          </div>
+          <div>
+            <span>
+              <i class="far fa-envelope"></i>
+            </span>
+            company@gmail.com
+          </div>
+          <div>
+            <span>
+              <i class="fas fa-phone"></i>
+            </span>
+            456-456-4512
+          </div>
+          <div>
+            <span>
+              <i class="far fa-paper-plane"></i>
+            </span>
+            Dream City, USA
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <!-- Custom Script -->
+  <script src="./js/index.js"></script>
+  <script>
+    
+      function func(id){
+        let q = document.getElementById(id);
+        // let sub = document.querySelector("#subtotal");
+        // sub.innerHTML = q.dataset.price * q.value + "TK";
+        // q.addEventListener("change", function(){
+          console.log(q);
+          let data = {quantity:q.value};
+          fetch("/update-cart/" + q.dataset.v , {method: "POST", headers: {
+          "Content-type": "application/json; charset=UTF-8"
+          } , body:JSON.stringify(data)});
+
+          let sub = document.getElementById(q.dataset.sub);
+          sub.innerHTML = q.dataset.price * q.value + "TK";
+        // });
+      }
+    
+  </script>
+</body>
+
+</html>

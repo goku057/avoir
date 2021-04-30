@@ -1,0 +1,27 @@
+<%- include("./partials/header.ejs") %> 
+<body>
+    <!-- Navigation -->
+    <%- include("./partials/navbar.ejs") %> 
+     
+    <div style="align-items: center;padding-left: 257px;">
+        <br>
+        <!--  SINGLE FILE -->
+        <form action="/uploadfile" enctype="multipart/form-data" method="POST"> 
+            <input type="file" name="img" required/>
+            <br>
+            Title <br> <input type="text" name="title" required/><br>
+            Description:<br> <input type="text" name="description" style="min-height: 200px;min-width: 200px;" required/><br>
+            price:<br> <input type="number" name="price" required/><br>
+            quantity:<br> <input type="number" name="quantity" required/><br>
+            Product Type: <br><input type="text" name="type"  required/><br>
+            <input type="submit" value="Post"/>
+        </form>
+        
+        <br>
+        
+    </div>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <!-- Custom Script -->
+  <script src="./js/index.js"></script>

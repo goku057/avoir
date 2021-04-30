@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Your total price is <%= data.totalPrice %> TK</h1>
+    <h3>Enter your transaction id</h3>
+    <form action="/pay" method="post">
+    <input type="text" name="tran" id="">
+    <input type="hidden" name="totalPrice" value="<%= data.totalPrice %>">
+    <input type="submit" value="Pay">
+    </form>
+
+</body>
+</html>

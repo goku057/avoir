@@ -1,0 +1,204 @@
+<%- include("./partials/header.ejs") %> 
+<body>
+  <!-- Navigation -->
+  <%- include("./partials/navbar.ejs") %> 
+
+  <!-- Product Details -->
+  <section class="section product-detail">
+    <div class="details container-md">
+      <div class="left">
+        <div class="main">
+          <img src="/<%= data.product[0].img %> " alt="">
+        </div>
+        
+      </div>
+      <div class="right">
+        <h1><%= data.product[0].title %> </h1>
+        <div class="price"><%= data.product[0].price %> TK</div>
+        <form class="form" method="post" action="/cart">
+          <div>
+            <input type="hidden" name="price" value="<%= data.product[0].price %>">
+            <input type="hidden" name="product_id" value="<%= data.product[0].id %> ">
+            <select name="size" > 
+              <option value="s" selected>Small</option>
+              <option value="m">Medium</option>
+              <option value="l">Large</option>
+              <option value="xl">Extra Large</option>
+            </select>
+            <span><i class='bx bx-chevron-down'></i></span>
+          </div>
+          <button type="submit"  class="addCart">Add To Cart</button>
+        </form>
+
+        <h3>Product Detail</h3>
+        <p><%= data.product[0].description %> </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="section featured">
+    <div class="top container">
+      <h1>Related Products</h1>
+      <a href="#" class="view-more">View more</a>
+    </div>
+
+    <div class="product-center container">
+      <div class="product">
+        <div class="product-header">
+          <img src="./images/pic1.jpg" alt="">
+          <ul class="icons">
+            <span><i class="bx bx-heart"></i></span>
+            <span><i class="bx bx-shopping-bag"></i></span>
+            <span><i class="bx bx-search"></i></span>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <a href="#"><h3>Boy’s T-Shirt</h3></a>
+          <div class="rating">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bx-star"></i>
+          </div>
+          <h4 class="price">$50</h4>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-header">
+          <img src="./images/pic2.jpg" alt="">
+
+          <ul class="icons">
+            <span><i class="bx bx-heart"></i></span>
+            <span><i class="bx bx-shopping-bag"></i></span>
+            <span><i class="bx bx-search"></i></span>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <a href="#"><h3>Boy’s T-Shirt</h3></a>
+          <div class="rating">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bx-star"></i>
+          </div>
+          <h4 class="price">$50</h4>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-header">
+          <img src="./images/pic3.jpg" alt="">
+
+          <ul class="icons">
+            <span><i class="bx bx-heart"></i></span>
+            <span><i class="bx bx-shopping-bag"></i></span>
+            <span><i class="bx bx-search"></i></span>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <a href="#"><h3>Boy’s T-Shirt</h3></a>
+          <div class="rating">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bx-star"></i>
+          </div>
+          <h4 class="price">$50</h4>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-header">
+          <img src="./images/pic4.jpg" alt="">
+
+          <ul class="icons">
+            <span><i class="bx bx-heart"></i></span>
+            <span><i class="bx bx-shopping-bag"></i></span>
+            <span><i class="bx bx-search"></i></span>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <a href="#"><h3>Boy’s T-Shirt</h3></a>
+          <div class="rating">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bx-star"></i>
+          </div>
+          <h4 class="price">$50</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="section footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-center">
+          <h3>EXTRAS</h3>
+          <a href="#">Brands</a>
+          <a href="#">Gift Certificates</a>
+          <a href="#">Affiliate</a>
+          <a href="#">Specials</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>INFORMATION</h3>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>MY ACCOUNT</h3>
+          <a href="#">My Account</a>
+          <a href="#">Order History</a>
+          <a href="#">Wish List</a>
+          <a href="#">Newsletter</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="footer-center">
+          <h3>CONTACT US</h3>
+          <div>
+            <span>
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+            42 Dream House, Dreammy street, 7131 Dreamville, USA
+          </div>
+          <div>
+            <span>
+              <i class="far fa-envelope"></i>
+            </span>
+            company@gmail.com
+          </div>
+          <div>
+            <span>
+              <i class="fas fa-phone"></i>
+            </span>
+            456-456-4512
+          </div>
+          <div>
+            <span>
+              <i class="far fa-paper-plane"></i>
+            </span>
+            Dream City, USA
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <!-- Custom Script -->
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
